@@ -19,11 +19,17 @@ public class TesteConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
-			
+
 		User u1 = new User(1l, "nome", "email", "phone", "password");
 		User u2 = new User(2l, "nome2", "email2", "phone2", "password2");
-		
-		userRepository.saveAll(Arrays.asList(u1,u2));
+
+		//gambiarra 
+		User u3 = new User();
+		u3.setNome("nome3");
+		u3.setEmail("email3");
+		u3.setPhone("phone3");
+		u3.setPassword("pass3");
+
+		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 	}
 }
