@@ -32,24 +32,23 @@ public class TesteConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		User u1 = new User(1l, "nome", "email", "phone", "password");
-		User u2 = new User(2l, "nome2", "email2", "phone2", "password2");
+		User u1 = new User(1l, "Carlos", "carlos@gmail.com", "34996805000", "123d");
+		User u2 = new User(2l, "kamila", "kamila@email.com", "323425648", "214577");
+		User u3 = new User(3l, "Jeferson", "jeferson@email.com", "88081414", "8852858");
+		
 
-		// gambiarra
-		User u3 = new User();
-		u3.setNome("nome3");
-		u3.setEmail("email3");
-		u3.setPhone("phone3");
-		u3.setPassword("pass3");
+	
 
 		Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), u1, OrderStatus.valueOf(1));
 		Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), u2, OrderStatus.valueOf(2));
 		Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), u1, OrderStatus.valueOf(2));
 		
+		Category cat1 = new Category(1l,"Eletronics");
+		Category cat2 = new Category(2l,"Componet");
+		Category cat3 = new Category(3l,"Computery");
 		
-		Category cat1 = new Category(null, "Eletronics");
-		Category cat2 = new Category(null,"Books");
-		Category cat3 = new Category(null, "Computers");
+		
+	
 				
 		categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));	
 
