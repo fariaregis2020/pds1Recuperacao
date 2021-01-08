@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tb_category")
@@ -20,6 +20,9 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	@Transient
+	private Set<Product> products = new HashSet<>();
 	
 	/*@ManyToMany(mappedBy = "categories")*/
 	/*private Set<Product> products = new HashSet<>();*/
@@ -50,6 +53,11 @@ public class Category implements Serializable {
 	}
 	
 	
+	public Set<Product> getProducts() {
+		return products;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -74,5 +82,7 @@ public class Category implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 	
 }
