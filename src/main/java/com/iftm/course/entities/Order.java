@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.iftm.course.entities.enuns.*;
+import com.iftm.course.entities.enuns.OrderStatus;
 
 @Entity
 @Table(name = "tb_order")
@@ -66,6 +66,8 @@ public class Order implements Serializable {
 	public void setClient(User client) {
 		this.client = client;
 	}
+	
+	
 	
 	public OrderStatus getOrderStatus() {
 		return OrderStatus.valueOf(orderStatus);
